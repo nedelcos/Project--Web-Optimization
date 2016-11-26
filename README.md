@@ -9,7 +9,14 @@ To get started, check out the repository and inspect the code.
 ####Part 1: Optimize PageSpeed Insights score for index.html
 
 ### I achieved score 97 on Desktop and 95 on mobile, by doing the following:
-1. Compress Photos
+1. Compressed pictures
+2. Used smaller picture for the the pizza thumbnail
+3. Compressed and inline css
+4. Compressed index.html's content
+5. Used font-fac
+6. Used async for perfmatters.js and google Analytics
+7. Used media query in link for print.css
+8. Added .htaccess for cache
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
