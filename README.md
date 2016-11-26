@@ -23,6 +23,7 @@ To get started, check out the repository and inspect the code.
 1. In the updatePositions function, instead of scrollTop property, I used jquery's scrollTop() method and allowed the browser to get the scroll position much faster.
 2. In the updatePositions function, I assigned the scrollTop property to a variable - outside the foor loop and achieved an average scripting time to generate last 10 frames of 1ms (give or take).
 3. Reduced number of pizzas generated on load, from the DOMContentLoaded event handler. At a FHD resolution, not more than 40 pizzas will display in viewport. I set the for loop to stop at 50 (nice to have a margin of error).
+4. I optimized the changePizzaSizes function by pulling the querrySelectorAll out of the for loop - the calculations only needed to happen once, not every time we iterrate through the loop.
 
 
 To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.

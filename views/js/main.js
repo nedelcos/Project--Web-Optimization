@@ -467,15 +467,16 @@ var resizePizzas = function(size) {
 
         return dx;
     }
-//TODO: style selector out of the loop
+
+// Pulled the selectors out of the loop.
 
     // Iterates through pizza elements on the page and changes their widths
     function changePizzaSizes(size) {
-        var firstPizzaSize = document.querySelectorAll(".randomPizzaContainer")[0];
-        var dx = determineDx(firstPizzaSize, size);
-        var newwidth = firstPizzaSize.offsetWidth + dx) + 'px';
+        var firstPizza = document.querySelectorAll(".randomPizzaContainer");
+        var dx = determineDx(firstPizza[0], size);
+        var newwidth = firstPizza[0].offsetWidth + dx + 'px';
         for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-            document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+            firstPizza[i].style.width = newwidth;
         }
     }
 
@@ -520,6 +521,8 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
+// I pulled the scroll spying techy thingy out of the loop (so it won't run every time we iterrate)
+// Replaced scrollTop property with a jQuery method - scrollTop()
 function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
@@ -547,6 +550,7 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+// Reducen number of pizzas at load - keept just enaugh (plus some extra for the hungy ones :) ) to fit the screen.
 document.addEventListener('DOMContentLoaded', function() {
     var cols = 8;
     var s = 256;
